@@ -1,0 +1,243 @@
+<html>
+
+	<head>
+	<meta charset="utf-8">
+	<meta name="generator" content="Hugo 0.29" />
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<link rel="stylesheet" href="http://weilinshi.org/css/bootstrap.min.css">
+	<link rel="stylesheet" href="http://weilinshi.org/css/styles.css">
+	<link rel="alternate" type="application/rss+xml" title="RSS" href="http://weilinshi.org/index.xml">
+	<link rel="icon" href="http://weilinshi.org/favicon.png">
+
+	
+	<title>Typescript vs Flow - 石威林的博客</title>
+	<meta property='og:title' content="Typescript vs Flow - 石威林的博客">
+	<meta property="og:type" content="article">
+	
+
+	<meta property="og:url" content="http://weilinshi.org/post/typescript-vs-flow/">
+	
+	<meta property="og:image" content="http://weilinshi.org/images/ts-flow.png">
+</head>
+
+	<script type="application/ld+json">
+		{
+			"@context": "http://schema.org",
+			"@type": "BlogPosting",
+			"mainEntityOfPage":{
+				"@type":"WebPage",
+				"@id":"http://weilinshi.org/"
+			},
+			"headline": "Typescript vs Flow |  ",
+			"image": {
+				"@type": "ImageObject",
+				"url": "",
+				"height": 700,
+				"width": 700
+			},
+			"datePublished": "2016-10-30T11:40:57JST",
+			"dateModified": "2016-10-30T11:40:57JST",
+			"author": {
+				"@type": "Person",
+				"name": "石威林",
+				"image": "http://weilinshi.org/images/logo.png"
+			},
+			"publisher": {
+				"@type": "Organization",
+				"name": "",
+				"logo": {
+					"@type": "ImageObject",
+					"url": "http://weilinshi.org/images/logo.png",
+					"height": 60,
+					"width": 60
+				}
+			},
+			"description": ""
+		}
+	</script>
+<body>
+
+<div class="container">
+	<nav class="navbar navbar-expand-sm justify-content-between header">
+		<a href="http://weilinshi.org/" class="navbar-brand">
+			石威林的博客
+		</a>
+		<ul class="navbar-nav">
+			<li class="nav-item">
+				<a href="http://weilinshi.org/" class="nav-link">blog</a>
+			</li>
+			<li class="nav-item">
+				<a href="/about/" class="nav-link">about</a>
+			</li>
+		</ul>
+	</nav>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-9">
+
+			<article class="card">
+				
+				<img 
+					src="http://weilinshi.org/images/ts-flow.png"
+					alt="header image"
+					class="img-fluid">
+				
+				<div class="card-block">
+					<h2 class="card-title underline">Typescript vs Flow</h2>
+				</div>
+				<div class="card-block md">
+					
+
+<h2 id="typescript-和-flow">Typescript 和 Flow</h2>
+
+<p>从编译型语言转型的工程师常常抱怨 Javascript 没有类型，不安全。我自己在工作中
+也经常遇到过对象上的一个属性在n个模块之间传递之后变成了 undefined 。</p>
+
+<p>微软和脸书的工程师开发自己的开源的方案来解决这种痛点，这就有了微软的
+Typescript 和脸书的 Flow 。</p>
+
+<h3 id="typescript">Typescript</h3>
+
+<p>Typescript 被称作“有类型的并且编译成原生的Javascript的超集”。
+Typescript 现在是 github 上最受欢迎的语言之一，并且现在在 npm 上有 2M 的下载量。</p>
+
+<p>所有的 Javascript 语法在 Typescript 中都是有效的，但是不要以为你把已有的
+.js文件重命名为.ts就可以万事大吉了。Typscript不会像 Less 或者 Sass 那样接受 css 。
+如果想用 Typescript ，我必须从新建一个项目开始。</p>
+
+<p>按照 <a href="https://www.typescriptlang.org/docs/tutorial.html">Typescript 的文档</a> ，
+我可以较为轻松的构建一个简单的项目，并给我的变量和对象添加类型。</p>
+
+<p>但是，如果你想做一些更加复杂的事情就没有那么简单了。你肯定需要获取你的依赖的类型定义，
+不然 Typescript 会认为</p>
+
+<blockquote>
+<p>import assert from &lsquo;assert&rsquo;;</p>
+</blockquote>
+
+<p>这里的 assert 未定义，不能编译。</p>
+
+<p>所以我花了九牛二虎之力，浪费了好久，查了typings和tsd之后，不知咋的就算勉强搞定了。
+但是更糟糕的是，我不能像类似这样：</p>
+
+<blockquote>
+<p>mocha &ndash;compilers ts:typescript</p>
+</blockquote>
+
+<p>就运行我的 mocha 测试。我查了以下 github 上面的一些 Typescript 项目，
+大家都是先编译再运行测试。到这时我只能怒删 Typescript 了。</p>
+
+<h3 id="flow">Flow</h3>
+
+<p>Flow 是一个给 Javascript 添加了静态类型检查的工具，现在在 npm 上有 1.8M 的下载。
+所有的 Javascript 文件都可以让 Flow 检查，你只需要在文件的顶部加上这一行</p>
+
+<blockquote>
+<p>// @flow</p>
+</blockquote>
+
+<p>有点类似 &lsquo;use strict&rsquo;;</p>
+
+<p>如果想要充分利用 Flow 的静态类型分析，我就必须要添加 Flow 的静态类型标注，像是：</p>
+
+<blockquote>
+<p>const str: string = &lsquo;Hello, world!&rsquo;;</p>
+</blockquote>
+
+<p>所以，部分已有的项目是不能有效的使用 Flow 的。 但是基于 babel 的项目是完全可以的，
+只需要一个 <a href="https://babeljs.io/docs/plugins/transform-flow-strip-types/">babel 插件</a></p>
+
+<p>而构建一个新的 Flow 项目和基于 babel 的项目是一样的，你只是加了一个 babel 的插件而已。
+Flow 的语言和 Typescript 的语法类似，甚至大部分时候是完全一样的。到了测试环节，
+还是 babel 项目的老办法：</p>
+
+<blockquote>
+<p>mocha &ndash;compilers js:babel-register</p>
+</blockquote>
+
+<p>Flow 最大的优点是，只要语法正确，babel 仍然能正常编译，如果你不喜欢，你可以去掉
+Flow 的指令让它不再检查那个文件就可以了。</p>
+
+<h2 id="总结">总结</h2>
+
+<p>虽然两个工具都很受欢迎，但是我还是偏好 Flow 。也许我打开 Typescript 的姿势不对，
+但是 Typescript 总归是个新的语言。不安它的规则走，你就别指望有能用的代码。
+相对的， Flow 像是你的额外的Linter,它会对你的文件进行静态类型分析，如果你认为
+它说的不对，可以忽略掉。所以，除非有 Angular 2 的项目，不然，如果项目有类型安全的
+需求，我肯定会选择 Flow，毕竟 babel 怎么都会用得上。</p>
+
+				</div>
+
+				<div>
+					<section class="py-2">
+						<div class="text-center">
+							-
+						</div>
+					</section>
+				</div>
+			</article>
+		</div>
+		<div class="col-md-3">
+			<aside class="site">
+
+	
+
+	<section>
+		<header class="py-2 ml-2 mb-1">Latest Posts</header>
+		<div class="list-group">
+			
+			<a href="http://weilinshi.org/post/i-will-stop-maintain-svg-captcha/" class="list-group-item">
+	<div class="list-group-heading text-muted">我不再维护 svg-captcha</div>
+	<time class="list-group-item-text text-grey">
+		Sat, Dec 16, 2017
+	</time>
+</a>
+
+			
+			<a href="http://weilinshi.org/post/no-javascript/" class="list-group-item">
+	<div class="list-group-heading text-muted">移除 JavaScript</div>
+	<time class="list-group-item-text text-grey">
+		Sat, Oct 7, 2017
+	</time>
+</a>
+
+			
+			<a href="http://weilinshi.org/post/godot/" class="list-group-item">
+	<div class="list-group-heading text-muted">Godot</div>
+	<time class="list-group-item-text text-grey">
+		Fri, Jul 28, 2017
+	</time>
+</a>
+
+			
+		</div>
+	</section>
+</aside>
+
+		</div>
+	</div>
+</div>
+
+<footer class="footer">
+	<div class="container">
+		<p>
+			<span>&copy;</span>
+			<span>2017</span>
+			<span>石威林</span>
+			<span>&emsp;Powered by </span>
+			<a href="http://gohugo.io" target="_blank" rel="nofollow">Hugo</a>
+		</p>
+		<p class="text-grey">
+			<em>The only way to do great work is to love what you do</em>
+		</p>
+	</div>
+</footer>
+
+
+
+</body>
+</html>

@@ -1,0 +1,172 @@
+<html>
+
+	<head>
+	<meta charset="utf-8">
+	<meta name="generator" content="Hugo 0.29" />
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<link rel="stylesheet" href="http://weilinshi.org/css/bootstrap.min.css">
+	<link rel="stylesheet" href="http://weilinshi.org/css/styles.css">
+	<link rel="alternate" type="application/rss+xml" title="RSS" href="http://weilinshi.org/index.xml">
+	<link rel="icon" href="http://weilinshi.org/favicon.png">
+
+	
+	<title>No JavaScript - Weilin&#39;s blog</title>
+	<meta property='og:title' content="No JavaScript - Weilin&#39;s blog">
+	<meta property="og:type" content="article">
+	
+
+	<meta property="og:url" content="http://weilinshi.org/en/post/no-javascript/">
+	
+	
+</head>
+
+	<script type="application/ld+json">
+		{
+			"@context": "http://schema.org",
+			"@type": "BlogPosting",
+			"mainEntityOfPage":{
+				"@type":"WebPage",
+				"@id":"http://weilinshi.org/"
+			},
+			"headline": "No JavaScript |  ",
+			"image": {
+				"@type": "ImageObject",
+				"url": "",
+				"height": 700,
+				"width": 700
+			},
+			"datePublished": "2017-10-07T18:18:05JST",
+			"dateModified": "2017-10-07T18:18:05JST",
+			"author": {
+				"@type": "Person",
+				"name": "石威林",
+				"image": "http://weilinshi.org/images/logo.png"
+			},
+			"publisher": {
+				"@type": "Organization",
+				"name": "",
+				"logo": {
+					"@type": "ImageObject",
+					"url": "http://weilinshi.org/images/logo.png",
+					"height": 60,
+					"width": 60
+				}
+			},
+			"description": ""
+		}
+	</script>
+<body>
+
+<div class="container">
+	<nav class="navbar navbar-expand-sm justify-content-between header">
+		<a href="http://weilinshi.org//en" class="navbar-brand">
+			Weilin&#39;s blog
+		</a>
+		<ul class="navbar-nav">
+			<li class="nav-item">
+				<a href="http://weilinshi.org//en" class="nav-link">blog</a>
+			</li>
+			<li class="nav-item">
+				<a href="/en/about/" class="nav-link">about</a>
+			</li>
+		</ul>
+	</nav>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-9">
+
+			<article class="card">
+				
+				<div class="card-block">
+					<h2 class="card-title underline">No JavaScript</h2>
+				</div>
+				<div class="card-block md">
+					
+
+<h2 id="remove-js-from-my-blog">Remove JS from my blog</h2>
+
+<p>Almost every modern website requires JavaScript to function properly nowadays. At my day job, single page application is the way to build website. If you disable JS, good luck finding a website that is useful. And there is the debate over whether websites should suppport JavaScript-free mode. I&rsquo;m not going to argue for that issue. I think that depend on your website&rsquo;s content and your budget. However, make my blog JavaScript-free is simple.</p>
+
+<h2 id="the-actual-process">The actual process</h2>
+
+<p>My blog have two script files: a syntax highlighter and Google analytics. Thanks to <a href="https://github.com/alecthomas/chroma">chroma</a>, a Golang native syntax highlighter, I can get rid of JS syntax highlighter. If you have used Hexo before, you will know that server side syntax highlight with highlight.js is slow when building large site. On contrary, Chroma is fast. Although Chroma is only four month old at the time of writing, it is production ready for static site. Chroma is bundled with Hugo v0.28.0 and I can remove my JS syntax highlighter.</p>
+
+<p>Removing GA is also easy. I do not need GA. I do not need to anything about my blog reader. Period.</p>
+
+<p>Now, enjoy my JavaScript-free blog!</p>
+
+				</div>
+
+				<div>
+					<section class="py-2">
+						<div class="text-center">
+							-
+						</div>
+					</section>
+				</div>
+			</article>
+		</div>
+		<div class="col-md-3">
+			<aside class="site">
+
+	
+
+	<section>
+		<header class="py-2 ml-2 mb-1">Latest Posts</header>
+		<div class="list-group">
+			
+			<a href="http://weilinshi.org/en/post/i-will-stop-maintain-svg-captcha/" class="list-group-item">
+	<div class="list-group-heading text-muted">I Will Stop Maintain svg-captcha</div>
+	<time class="list-group-item-text text-grey">
+		Sat, Dec 16, 2017
+	</time>
+</a>
+
+			
+			<a href="http://weilinshi.org/en/post/no-javascript/" class="list-group-item">
+	<div class="list-group-heading text-muted">No JavaScript</div>
+	<time class="list-group-item-text text-grey">
+		Sat, Oct 7, 2017
+	</time>
+</a>
+
+			
+			<a href="http://weilinshi.org/en/post/godot/" class="list-group-item">
+	<div class="list-group-heading text-muted">Godot</div>
+	<time class="list-group-item-text text-grey">
+		Fri, Jul 28, 2017
+	</time>
+</a>
+
+			
+		</div>
+	</section>
+</aside>
+
+		</div>
+	</div>
+</div>
+
+<footer class="footer">
+	<div class="container">
+		<p>
+			<span>&copy;</span>
+			<span>2017</span>
+			<span>石威林</span>
+			<span>&emsp;Powered by </span>
+			<a href="http://gohugo.io" target="_blank" rel="nofollow">Hugo</a>
+		</p>
+		<p class="text-grey">
+			<em>The only way to do great work is to love what you do</em>
+		</p>
+	</div>
+</footer>
+
+
+
+</body>
+</html>

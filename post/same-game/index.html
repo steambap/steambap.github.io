@@ -1,0 +1,382 @@
+<html>
+
+	<head>
+	<meta charset="utf-8">
+	<meta name="generator" content="Hugo 0.29" />
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<link rel="stylesheet" href="http://weilinshi.org/css/bootstrap.min.css">
+	<link rel="stylesheet" href="http://weilinshi.org/css/styles.css">
+	<link rel="alternate" type="application/rss+xml" title="RSS" href="http://weilinshi.org/index.xml">
+	<link rel="icon" href="http://weilinshi.org/favicon.png">
+
+	
+	<title>消除游戏 - 石威林的博客</title>
+	<meta property='og:title' content="消除游戏 - 石威林的博客">
+	<meta property="og:type" content="article">
+	
+
+	<meta property="og:url" content="http://weilinshi.org/post/same-game/">
+	
+	
+</head>
+
+	<script type="application/ld+json">
+		{
+			"@context": "http://schema.org",
+			"@type": "BlogPosting",
+			"mainEntityOfPage":{
+				"@type":"WebPage",
+				"@id":"http://weilinshi.org/"
+			},
+			"headline": "消除游戏 |  ",
+			"image": {
+				"@type": "ImageObject",
+				"url": "",
+				"height": 700,
+				"width": 700
+			},
+			"datePublished": "2016-12-21T12:00:21JST",
+			"dateModified": "2016-12-21T12:00:21JST",
+			"author": {
+				"@type": "Person",
+				"name": "石威林",
+				"image": "http://weilinshi.org/images/logo.png"
+			},
+			"publisher": {
+				"@type": "Organization",
+				"name": "",
+				"logo": {
+					"@type": "ImageObject",
+					"url": "http://weilinshi.org/images/logo.png",
+					"height": 60,
+					"width": 60
+				}
+			},
+			"description": ""
+		}
+	</script>
+<body>
+
+<div class="container">
+	<nav class="navbar navbar-expand-sm justify-content-between header">
+		<a href="http://weilinshi.org/" class="navbar-brand">
+			石威林的博客
+		</a>
+		<ul class="navbar-nav">
+			<li class="nav-item">
+				<a href="http://weilinshi.org/" class="nav-link">blog</a>
+			</li>
+			<li class="nav-item">
+				<a href="/about/" class="nav-link">about</a>
+			</li>
+		</ul>
+	</nav>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-9">
+
+			<article class="card">
+				
+				<div class="card-block">
+					<h2 class="card-title underline">消除游戏</h2>
+				</div>
+				<div class="card-block md">
+					
+
+<h2 id="用-phaser-制作消除游戏">用 phaser 制作消除游戏</h2>
+
+<p>最近我使用 phaser 游戏框架做了一个简单的消除游戏。</p>
+
+<h4 id="基本设置">基本设置</h4>
+
+<p>我使用了 electron 而不是 http 服务器来做本地调试，<br />
+因为 electron 自带 require，可以使我的代码更模块化，<br />
+而且我还可以使用 ES6。</p>
+
+<p>所以我的游戏入口设置是这样的：</p>
+
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JavaScript" data-lang="JavaScript"><span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">game</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">new</span> <span style="color:#000">Phaser</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Game</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">options</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">width</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">options</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">height</span><span style="color:#000;font-weight:bold">);</span>
+
+<span style="color:#000">game</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">state</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">add</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#39;InGame&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">InGame</span><span style="color:#000;font-weight:bold">);</span>
+<span style="color:#000">game</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">state</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">start</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#39;InGame&#39;</span><span style="color:#000;font-weight:bold">);</span></code></pre>
+</div>
+
+<p>我的游戏只有一个 in game 游戏状态，这里会有所有的游戏逻辑。</p>
+
+<h4 id="游戏逻辑">游戏逻辑</h4>
+
+<p>首先是构造器，这里面会有我们要用到的状态，比较重要的是以下几个：</p>
+
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JavaScript" data-lang="JavaScript"><span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">InGame</span> <span style="color:#000;font-weight:bold">{</span>
+	<span style="color:#000">constructor</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
+		<span style="color:#8f5902;font-style:italic">// 是否允许用户点击
+</span><span style="color:#8f5902;font-style:italic"></span>		<span style="color:#8f5902;font-style:italic">// 如果有消除或填充的动画，则不允许用户点击
+</span><span style="color:#8f5902;font-style:italic"></span>		<span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">canPick</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">true</span><span style="color:#000;font-weight:bold">;</span>
+		<span style="color:#8f5902;font-style:italic">// 二维数组，保存画面上所有可以消除的方块
+</span><span style="color:#8f5902;font-style:italic"></span>		<span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">tilesArray</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[];</span>
+		<span style="color:#8f5902;font-style:italic">// 方块回收池
+</span><span style="color:#8f5902;font-style:italic"></span>		<span style="color:#8f5902;font-style:italic">// 当用户消除了一些方块时，那些方块不会被删除，而是暂时回到回收池
+</span><span style="color:#8f5902;font-style:italic"></span>		<span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">tilePool</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[];</span>
+	<span style="color:#000;font-weight:bold">}</span>
+<span style="color:#000;font-weight:bold">}</span></code></pre>
+</div>
+
+<p>有了这些状态之后，我们就可以预加载图片并且在画面上显示所有的方块了。<br />
+预加载的代码我先省略掉。</p>
+
+<p>主要看 InGame 游戏状态的create方法</p>
+
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JavaScript" data-lang="JavaScript"><span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">InGame</span> <span style="color:#000;font-weight:bold">{</span>
+	<span style="color:#000">preload</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
+		<span style="color:#8f5902;font-style:italic">// 预加载代码
+</span><span style="color:#8f5902;font-style:italic"></span>		<span style="color:#8f5902;font-style:italic">// 例如：this.game.load.image(&#39;tile&#39;, &#39;./tile.png&#39;)
+</span><span style="color:#8f5902;font-style:italic"></span>	<span style="color:#000;font-weight:bold">}</span>
+	<span style="color:#000">create</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
+		<span style="color:#8f5902;font-style:italic">// 这里一般会有缩放代码来适配各种屏幕
+</span><span style="color:#8f5902;font-style:italic"></span>		<span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">createLv</span><span style="color:#000;font-weight:bold">();</span>
+	<span style="color:#000;font-weight:bold">}</span>
+	<span style="color:#000">createLv</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
+		<span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">let</span> <span style="color:#000">i</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#000">i</span> <span style="color:#ce5c00;font-weight:bold">&lt;</span> <span style="color:#000">opts</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">rows</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#000">i</span><span style="color:#ce5c00;font-weight:bold">++</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+			<span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">tilesArray</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">i</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[];</span>
+			<span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">let</span> <span style="color:#000">j</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#000">j</span> <span style="color:#ce5c00;font-weight:bold">&lt;</span> <span style="color:#000">opts</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">cols</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#000">j</span><span style="color:#ce5c00;font-weight:bold">++</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+				<span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">addTile</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">i</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">j</span><span style="color:#000;font-weight:bold">);</span>
+			<span style="color:#000;font-weight:bold">}</span>
+		<span style="color:#000;font-weight:bold">}</span>		
+	<span style="color:#000;font-weight:bold">}</span>
+	<span style="color:#000">addTile</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">row</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">col</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+		<span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">tile</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">makeTile</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">row</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">col</span><span style="color:#000;font-weight:bold">);</span>
+
+		<span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">tilesArray</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">row</span><span style="color:#000;font-weight:bold">][</span><span style="color:#000">col</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">{</span>
+			<span style="color:#000">tileSprite</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000">tile</span><span style="color:#000;font-weight:bold">,</span>
+			<span style="color:#000">isEmpty</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">,</span>
+			<span style="color:#000">coordinate</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">new</span> <span style="color:#000">Point</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">row</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">col</span><span style="color:#000;font-weight:bold">),</span>
+			<span style="color:#000">tint</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000">tile</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">tint</span>
+		<span style="color:#000;font-weight:bold">};</span>
+	<span style="color:#000;font-weight:bold">}</span>
+
+	<span style="color:#000">makeTile</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">row</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">col</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+		<span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">left</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">col</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#0000cf;font-weight:bold">0.5</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">opts</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">tileSize</span><span style="color:#000;font-weight:bold">;</span>
+		<span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">top</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">row</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#0000cf;font-weight:bold">0.5</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">opts</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">tileSize</span><span style="color:#000;font-weight:bold">;</span>
+
+		<span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">theTile</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">game</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">add</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">sprite</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">left</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">top</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#39;tiles&#39;</span><span style="color:#000;font-weight:bold">);</span>
+
+		<span style="color:#000">theTile</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">anchor</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">set</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">0.5</span><span style="color:#000;font-weight:bold">);</span>
+		<span style="color:#000">theTile</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">width</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">opts</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">tileSize</span><span style="color:#000;font-weight:bold">;</span>
+		<span style="color:#000">theTile</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">height</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">opts</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">tileSize</span><span style="color:#000;font-weight:bold">;</span>
+
+		<span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">colorIndex</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">game</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">rnd</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">integerInRange</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">opts</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">colors</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">length</span> <span style="color:#ce5c00;font-weight:bold">-</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">);</span>
+
+		<span style="color:#000">theTile</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">tint</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">opts</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">colors</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">colorIndex</span><span style="color:#000;font-weight:bold">];</span>
+
+		<span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">theTile</span><span style="color:#000;font-weight:bold">;</span>
+	<span style="color:#000;font-weight:bold">}</span>
+<span style="color:#000;font-weight:bold">}</span></code></pre>
+</div>
+
+<p>这个 opts 定量里面有设定游戏有多少行和列，<br />
+所以 createLv 方法先遍历行，再遍历列，然后对对应的行和列添加方块<br />
+makeTile 方法会生成对应的方块并添加到游戏当中<br />
+注意：
+* 方块的中心在方块的中间，所以计算位置时会有 + 0.5
+* 每个方块有一个随机的颜色，用的是 Phaser 的 rnd.integerInRange 方法
+最后在 addTile 方法里面，我把生成的 sprite ，相应的位置，还有颜色添加到了 tilesArray 里面</p>
+
+<p>这时打开游戏，已经能看到所有的方块已经显示出来了。</p>
+
+<p>但是，现在点击这些方块还没有任何效果。</p>
+
+<p>所以，我们需要对用户的点击操作进行处理：</p>
+
+<p><div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JavaScript" data-lang="JavaScript"><span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">InGame</span> <span style="color:#000;font-weight:bold">{</span>
+	<span style="color:#000">createLv</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
+		<span style="color:#8f5902;font-style:italic">// 遍历添加方块的代码省略
+</span><span style="color:#8f5902;font-style:italic"></span>		<span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">game</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">input</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">onDown</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">add</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">pickTile</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">);</span>
+	<span style="color:#000;font-weight:bold">}</span>
+
+	<span style="color:#000">pickTile</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">e</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+		<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">canPick</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+			<span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">posX</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">e</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">x</span><span style="color:#000;font-weight:bold">;</span>
+			<span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">posY</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">e</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">y</span><span style="color:#000;font-weight:bold">;</span>
+
+			<span style="color:#8f5902;font-style:italic">// 这里的 e 是事件对象
+</span><span style="color:#8f5902;font-style:italic"></span>			<span style="color:#8f5902;font-style:italic">// 事件触发的 x 决定触发在哪个列
+</span><span style="color:#8f5902;font-style:italic"></span>			<span style="color:#8f5902;font-style:italic">// 事件触发的 y 决定触发在哪个行
+</span><span style="color:#8f5902;font-style:italic"></span>			<span style="color:#8f5902;font-style:italic">// 一定要小心并弄清它们的关系
+</span><span style="color:#8f5902;font-style:italic"></span>			<span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">pickedRow</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87">Math</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">floor</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">posY</span> <span style="color:#a40000">/ opts.tileSize);</span>
+			<span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">pickedCol</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87">Math</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">floor</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">posX</span> <span style="color:#a40000">/ opts.tileSize);</span>
+
+			<span style="color:#8f5902;font-style:italic">// isValidTile 函数检查用户的点击是否在合法范围内，略。
+</span><span style="color:#8f5902;font-style:italic"></span>			<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">isValidTile</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">pickedRow</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">pickedCol</span><span style="color:#000;font-weight:bold">))</span> <span style="color:#000;font-weight:bold">{</span>
+				<span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">pickedTile</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">tilesArray</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">pickedRow</span><span style="color:#000;font-weight:bold">][</span><span style="color:#000">pickedCol</span><span style="color:#000;font-weight:bold">];</span>
+				<span style="color:#8f5902;font-style:italic">// 真正的消除逻辑
+</span><span style="color:#8f5902;font-style:italic"></span>				<span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">tryPick</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">pickedTile</span><span style="color:#000;font-weight:bold">);</span>
+			<span style="color:#000;font-weight:bold">}</span>
+		<span style="color:#000;font-weight:bold">}</span>
+	<span style="color:#000;font-weight:bold">}</span>
+
+	<span style="color:#000">tryPick</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">theTile</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+		<span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">fill</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[];</span>
+		<span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">floodFill</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">theTile</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">coordinate</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">theTile</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">tint</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">fill</span><span style="color:#000;font-weight:bold">);</span>
+
+		<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">fill</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">length</span> <span style="color:#ce5c00;font-weight:bold">&gt;</span> <span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+			<span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">destroyTiles</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">fill</span><span style="color:#000;font-weight:bold">);</span>
+		<span style="color:#000;font-weight:bold">}</span>
+	<span style="color:#000;font-weight:bold">}</span>
+<span style="color:#000;font-weight:bold">}</span></code></pre>
+</div></p>
+
+<p>当用户点击鼠标左键时，会触发回调 pickTile 函数，具体逻辑在注释中有。</p>
+
+<p>如果用户的点击合法，就调用 tryPick 函数。<br />
+这个函数初始化了一个 fill 变量，保存这次点击会影响到的方块。<br />
+之后有一个 floodFill 的方法，它会递归查找受影响的方块。</p>
+
+<p>最后检查受影响的方块的数量，如果是3个或更多，就可以消除它们，即三消。</p>
+
+<p>那就来看看 floodFill 是如何递归的：</p>
+
+<p><div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JavaScript" data-lang="JavaScript"><span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">InGame</span> <span style="color:#000;font-weight:bold">{</span>
+	<span style="color:#000">floodFill</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">point</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">color</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">fillArr</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+		<span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000;font-weight:bold">{</span><span style="color:#000">x</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">y</span><span style="color:#000;font-weight:bold">}</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">point</span><span style="color:#000;font-weight:bold">;</span>
+		<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">!</span><span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">isValidTile</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">x</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">y</span><span style="color:#000;font-weight:bold">))</span> <span style="color:#000;font-weight:bold">{</span>
+			<span style="color:#204a87;font-weight:bold">return</span><span style="color:#000;font-weight:bold">;</span>
+		<span style="color:#000;font-weight:bold">}</span>
+		<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">tilesArray</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">x</span><span style="color:#000;font-weight:bold">][</span><span style="color:#000">y</span><span style="color:#000;font-weight:bold">].</span><span style="color:#000">isEmpty</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+			<span style="color:#204a87;font-weight:bold">return</span><span style="color:#000;font-weight:bold">;</span>
+		<span style="color:#000;font-weight:bold">}</span>
+		<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">pointInArr</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">fillArr</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">point</span><span style="color:#000;font-weight:bold">))</span> <span style="color:#000;font-weight:bold">{</span>
+			<span style="color:#204a87;font-weight:bold">return</span><span style="color:#000;font-weight:bold">;</span>
+		<span style="color:#000;font-weight:bold">}</span>
+		<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">tilesArray</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">x</span><span style="color:#000;font-weight:bold">][</span><span style="color:#000">y</span><span style="color:#000;font-weight:bold">].</span><span style="color:#000">tint</span> <span style="color:#ce5c00;font-weight:bold">===</span> <span style="color:#000">color</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+			<span style="color:#000">fillArr</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">push</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">point</span><span style="color:#000;font-weight:bold">);</span>
+			<span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">floodFill</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">new</span> <span style="color:#000">Point</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">x</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">y</span><span style="color:#000;font-weight:bold">),</span> <span style="color:#000">color</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">fillArr</span><span style="color:#000;font-weight:bold">);</span>
+			<span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">floodFill</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">new</span> <span style="color:#000">Point</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">x</span> <span style="color:#ce5c00;font-weight:bold">-</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">y</span><span style="color:#000;font-weight:bold">),</span> <span style="color:#000">color</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">fillArr</span><span style="color:#000;font-weight:bold">);</span>
+			<span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">floodFill</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">new</span> <span style="color:#000">Point</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">x</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">y</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">),</span> <span style="color:#000">color</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">fillArr</span><span style="color:#000;font-weight:bold">);</span>
+			<span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">floodFill</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">new</span> <span style="color:#000">Point</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">x</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">y</span> <span style="color:#ce5c00;font-weight:bold">-</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">),</span> <span style="color:#000">color</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">fillArr</span><span style="color:#000;font-weight:bold">);</span>
+		<span style="color:#000;font-weight:bold">}</span>
+	<span style="color:#000;font-weight:bold">}</span>
+
+	<span style="color:#000">pointInArr</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">arr</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">point</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+		<span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">arr</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">some</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">myPoint</span> <span style="color:#000;font-weight:bold">=&gt;</span> <span style="color:#000">myPoint</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">equals</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">point</span><span style="color:#000;font-weight:bold">));</span>
+	<span style="color:#000;font-weight:bold">}</span>
+<span style="color:#000;font-weight:bold">}</span></code></pre>
+</div></p>
+
+<p>这个函数有3个参数，第一个是初始点，第二个是初始颜色，第三个是受影响的点的数组。</p>
+
+<p>之后会做一些条件判定，包括：
+- 递归的点是否合法，比如当前的点是(0, 0)， 之后会向(-1, 0) 等非法点递归
+- 检查当前的格子是否为空
+- 检查当前的点是否已经被加入到了数组中，这里用的是数组的 Array.some 方法
+- 当前颜色是否和初始点的颜色一样
+如果符合条件，会把当前的点加入到数组中，并向4个方向递归，这也是 windows 中“画图”应用中的“填充”功能的递归方法。</p>
+
+<p>当我们知道所有同样颜色的方块之后，就可以消除它们了。</p>
+
+<p>在 Phaser 官方的教程中，如果你碰到了一个星星，你就使用 kill 方法移除那个星星的 sprite<br />
+但那不一定是最好的选择，来看我是如果移除方块的：</p>
+
+<p><div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JavaScript" data-lang="JavaScript"><span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">InGame</span> <span style="color:#000;font-weight:bold">{</span>
+	<span style="color:#000">destroyTiles</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">tileList</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+		<span style="color:#8f5902;font-style:italic">// 禁止用户在动画中点击方块
+</span><span style="color:#8f5902;font-style:italic"></span>		<span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">canPick</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">;</span>
+
+		<span style="color:#000">tileList</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">forEach</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">point</span> <span style="color:#000;font-weight:bold">=&gt;</span> <span style="color:#000;font-weight:bold">{</span>
+			<span style="color:#8f5902;font-style:italic">// 按位置查找需要消除的方块
+</span><span style="color:#8f5902;font-style:italic"></span>			<span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">tile</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">tilesArray</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">point</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">x</span><span style="color:#000;font-weight:bold">][</span><span style="color:#000">point</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">y</span><span style="color:#000;font-weight:bold">];</span>
+			<span style="color:#8f5902;font-style:italic">// 不需要真的移除这些方块，而是让他们的透明度变为0
+</span><span style="color:#8f5902;font-style:italic"></span>			<span style="color:#8f5902;font-style:italic">// 这里是用动画让透明度逐渐变化
+</span><span style="color:#8f5902;font-style:italic"></span>			<span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">tween</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">game</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">add</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">tween</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">tile</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">tileSprite</span><span style="color:#000;font-weight:bold">).</span><span style="color:#000">to</span><span style="color:#000;font-weight:bold">({</span>
+				<span style="color:#000">alpha</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">0</span>
+			<span style="color:#000;font-weight:bold">},</span> <span style="color:#0000cf;font-weight:bold">300</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">Phaser</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Easing</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Linear</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">None</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">true</span><span style="color:#000;font-weight:bold">);</span>
+			<span style="color:#8f5902;font-style:italic">// 被“移除”的方块回到池中
+</span><span style="color:#8f5902;font-style:italic"></span>			<span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">tilePool</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">push</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">tile</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">tileSprite</span><span style="color:#000;font-weight:bold">);</span>
+			<span style="color:#000">tween</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">onComplete</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">add</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">fillHoles</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">);</span>
+			<span style="color:#8f5902;font-style:italic">// 当前的方块被标记为空
+</span><span style="color:#8f5902;font-style:italic"></span>			<span style="color:#000">tile</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">isEmpty</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">true</span><span style="color:#000;font-weight:bold">;</span>
+		<span style="color:#000;font-weight:bold">});</span>
+	<span style="color:#000;font-weight:bold">}</span>
+<span style="color:#000;font-weight:bold">}</span></code></pre>
+</div></p>
+
+<p>当动画完成后，执行 fillHoles 回调函数，并用重复利用池中的方块。</p>
+
+<p>代码我就不在这里展示了，因为都是一些面向过程的代码，而且比较长。</p>
+
+<p>项目在这里： <a href="https://github.com/steambap/same">same</a></p>
+
+				</div>
+
+				<div>
+					<section class="py-2">
+						<div class="text-center">
+							-
+						</div>
+					</section>
+				</div>
+			</article>
+		</div>
+		<div class="col-md-3">
+			<aside class="site">
+
+	
+
+	<section>
+		<header class="py-2 ml-2 mb-1">Latest Posts</header>
+		<div class="list-group">
+			
+			<a href="http://weilinshi.org/post/i-will-stop-maintain-svg-captcha/" class="list-group-item">
+	<div class="list-group-heading text-muted">我不再维护 svg-captcha</div>
+	<time class="list-group-item-text text-grey">
+		Sat, Dec 16, 2017
+	</time>
+</a>
+
+			
+			<a href="http://weilinshi.org/post/no-javascript/" class="list-group-item">
+	<div class="list-group-heading text-muted">移除 JavaScript</div>
+	<time class="list-group-item-text text-grey">
+		Sat, Oct 7, 2017
+	</time>
+</a>
+
+			
+			<a href="http://weilinshi.org/post/godot/" class="list-group-item">
+	<div class="list-group-heading text-muted">Godot</div>
+	<time class="list-group-item-text text-grey">
+		Fri, Jul 28, 2017
+	</time>
+</a>
+
+			
+		</div>
+	</section>
+</aside>
+
+		</div>
+	</div>
+</div>
+
+<footer class="footer">
+	<div class="container">
+		<p>
+			<span>&copy;</span>
+			<span>2017</span>
+			<span>石威林</span>
+			<span>&emsp;Powered by </span>
+			<a href="http://gohugo.io" target="_blank" rel="nofollow">Hugo</a>
+		</p>
+		<p class="text-grey">
+			<em>The only way to do great work is to love what you do</em>
+		</p>
+	</div>
+</footer>
+
+
+
+</body>
+</html>

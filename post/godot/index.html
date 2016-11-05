@@ -1,0 +1,180 @@
+<html>
+
+	<head>
+	<meta charset="utf-8">
+	<meta name="generator" content="Hugo 0.29" />
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<link rel="stylesheet" href="http://weilinshi.org/css/bootstrap.min.css">
+	<link rel="stylesheet" href="http://weilinshi.org/css/styles.css">
+	<link rel="alternate" type="application/rss+xml" title="RSS" href="http://weilinshi.org/index.xml">
+	<link rel="icon" href="http://weilinshi.org/favicon.png">
+
+	
+	<title>Godot - 石威林的博客</title>
+	<meta property='og:title' content="Godot - 石威林的博客">
+	<meta property="og:type" content="article">
+	
+
+	<meta property="og:url" content="http://weilinshi.org/post/godot/">
+	
+	
+</head>
+
+	<script type="application/ld+json">
+		{
+			"@context": "http://schema.org",
+			"@type": "BlogPosting",
+			"mainEntityOfPage":{
+				"@type":"WebPage",
+				"@id":"http://weilinshi.org/"
+			},
+			"headline": "Godot |  ",
+			"image": {
+				"@type": "ImageObject",
+				"url": "",
+				"height": 700,
+				"width": 700
+			},
+			"datePublished": "2017-07-28T18:28:22JST",
+			"dateModified": "2017-07-28T18:28:22JST",
+			"author": {
+				"@type": "Person",
+				"name": "石威林",
+				"image": "http://weilinshi.org/images/logo.png"
+			},
+			"publisher": {
+				"@type": "Organization",
+				"name": "",
+				"logo": {
+					"@type": "ImageObject",
+					"url": "http://weilinshi.org/images/logo.png",
+					"height": 60,
+					"width": 60
+				}
+			},
+			"description": ""
+		}
+	</script>
+<body>
+
+<div class="container">
+	<nav class="navbar navbar-expand-sm justify-content-between header">
+		<a href="http://weilinshi.org/" class="navbar-brand">
+			石威林的博客
+		</a>
+		<ul class="navbar-nav">
+			<li class="nav-item">
+				<a href="http://weilinshi.org/" class="nav-link">blog</a>
+			</li>
+			<li class="nav-item">
+				<a href="/about/" class="nav-link">about</a>
+			</li>
+		</ul>
+	</nav>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-9">
+
+			<article class="card">
+				
+				<div class="card-block">
+					<h2 class="card-title underline">Godot</h2>
+				</div>
+				<div class="card-block md">
+					
+
+<h2 id="godot-引擎">Godot 引擎</h2>
+
+<p>最近我完成了我的第一个安卓应用。虽然你可能不太相信，但我是用的一个游戏引擎 <a href="https://godotengine.org/">Godot</a> 来制作的。</p>
+
+<p>我的客户是 北京市<a href="http://www.chrenai.com/portal.php">仁爱慈善</a>基金会。它的旗下有一个项目叫仁爱心栈。这个项目的工作大概就是，每天早上有志愿者会到交通要道的周围把熬好的粥奉送给路过的人。有点类似古代的赊粥。</p>
+
+<p>而这个过程中需要记录一些东西，比如今天有哪些志愿者来了，他们具体的职责是什么，是否有新志愿者，奉送了多少杯粥等等。这时记录的东西一般是在手机上（安卓为主）。等早上忙完了，会有专门的文宣人员根据这些记录来写下当天的日志和心得。这时他们会使用电脑，当然是Windows系统。</p>
+
+<p>所以我的初始目标很明显，选择一个可以安卓和Windows通用的技术，快速的做出一个原型。我很想使用 JavaScript，那毕竟是我工作上使用的语言。我很熟悉他的优缺点。我不认我的客户会喜欢 50mb 的 Electron 应用，我也不会在这时贸然选择 React-Native 或 Weex。虽然后台我还是使用了 Node.js，但前端的技术选择很令我着急。</p>
+
+<p>这时我想到了 Unity3D，作为一个游戏引擎，它几乎就是我需要的：一份代码可以编译到安卓和Windows上。不过 Godot 引擎更好——我的客户应该不会喜欢看到 Unity3D 的 logo，而 Godot 作为 MIT 协议的游戏引擎，允许我使用仁爱慈善作为 splash screen。要知道仁爱慈善算是佛教的团体，是很保守的。如果让他们看到 Unity3D 的 logo，第一印象一定会很差的，虽然我知道 Unity3D 肯定是技术上最好的选择。</p>
+
+<p>Godot 引擎作为一个开源项目，最大的好处就是没有任何依赖，甚至不需要联网。在这里我就要批评一下我曾经看上的两个项目。一个是 google 出的 flutter。不知道为啥他们不喜欢自己同事设计的安卓的 api，但他的想法很好：用 c++ 写一个自己的跨平台引擎，配合 Dart 语言和自己的 FPR 框架。。。可惜的是他们的实现我只能用傻逼来形容。它会不经过我同意就要从 google 的服务器拉东西，撞在了防火墙上。我可是有梯子的，但它偏偏不用，总是想偷偷的搞事情，江来出了事情又不负责。另一个就是 Defold 引擎，居然要求你的项目在他的 git 服务器上，拿衣服。</p>
+
+<p>开发时使用 Godot 非常“方便”，因为你只需要看文档。没有任何第三方库可以使用，也没有复杂的包管理和 bundler。Godot 目前只支持自己的 GDScript 语言，该语言类似 Python，但并不是特别好用，只适合小型项目。</p>
+
+<p>之前我撒了一个谎，其实打包安卓时还是需要 Java 和 Android Studio 全家桶的。不过那都不是问题，google 一下就可以解决一切。</p>
+
+<p>结果当然是我的客户非常高兴。我也算是制作了自己第一个安卓应用。</p>
+
+				</div>
+
+				<div>
+					<section class="py-2">
+						<div class="text-center">
+							-
+						</div>
+					</section>
+				</div>
+			</article>
+		</div>
+		<div class="col-md-3">
+			<aside class="site">
+
+	
+
+	<section>
+		<header class="py-2 ml-2 mb-1">Latest Posts</header>
+		<div class="list-group">
+			
+			<a href="http://weilinshi.org/post/i-will-stop-maintain-svg-captcha/" class="list-group-item">
+	<div class="list-group-heading text-muted">我不再维护 svg-captcha</div>
+	<time class="list-group-item-text text-grey">
+		Sat, Dec 16, 2017
+	</time>
+</a>
+
+			
+			<a href="http://weilinshi.org/post/no-javascript/" class="list-group-item">
+	<div class="list-group-heading text-muted">移除 JavaScript</div>
+	<time class="list-group-item-text text-grey">
+		Sat, Oct 7, 2017
+	</time>
+</a>
+
+			
+			<a href="http://weilinshi.org/post/godot/" class="list-group-item">
+	<div class="list-group-heading text-muted">Godot</div>
+	<time class="list-group-item-text text-grey">
+		Fri, Jul 28, 2017
+	</time>
+</a>
+
+			
+		</div>
+	</section>
+</aside>
+
+		</div>
+	</div>
+</div>
+
+<footer class="footer">
+	<div class="container">
+		<p>
+			<span>&copy;</span>
+			<span>2017</span>
+			<span>石威林</span>
+			<span>&emsp;Powered by </span>
+			<a href="http://gohugo.io" target="_blank" rel="nofollow">Hugo</a>
+		</p>
+		<p class="text-grey">
+			<em>The only way to do great work is to love what you do</em>
+		</p>
+	</div>
+</footer>
+
+
+
+</body>
+</html>
