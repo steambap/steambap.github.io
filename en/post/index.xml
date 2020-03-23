@@ -1,254 +1,84 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Weilin&#39;s blog </title>
+    <title>Posts on Weilin&#39;s blog</title>
     <link>http://weilinshi.org/en/post/</link>
-    <language>en-us</language>
-    <author>石威林</author>
-    <rights>(C) 2017</rights>
-    <updated>2017-12-16 16:29:00 &#43;0800 CST</updated>
-
+    <description>Recent content in Posts on Weilin&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 23 Mar 2020 14:22:39 +0800</lastBuildDate>
     
-      
-        <item>
-          <title>I Will Stop Maintain svg-captcha</title>
-          <link>http://weilinshi.org/en/post/i-will-stop-maintain-svg-captcha/</link>
-          <pubDate>Sat, 16 Dec 2017 16:29:00 CST</pubDate>
-          <author>石威林</author>
-          <guid>http://weilinshi.org/en/post/i-will-stop-maintain-svg-captcha/</guid>
-          <description>
-
-&lt;h2 id=&#34;what&#34;&gt;What?&lt;/h2&gt;
-
-&lt;p&gt;I&amp;rsquo;m the former maintainer of Node.js open source captcha generation library &lt;code&gt;svg-captcha&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;As you can see, I&amp;rsquo;ve put a lot of effort in maintain the repo, as well as reply issues and merge pull requests.
-&lt;img src=&#34;http://weilinshi.org/images/svg-captcha-contrib.png&#34; alt=&#34;contrib&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Since I no longer works at Lemonce, I&amp;rsquo;ve lost the access to the repo.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/lichaozhy&#34;&gt;Li Chao&lt;/a&gt; will take over the maintaince of the library. You can email him: lichao@or-change.cn .&lt;/p&gt;
-
-&lt;h2 id=&#34;what-happened-actually&#34;&gt;What happened actually?&lt;/h2&gt;
-
-&lt;p&gt;I worked at Lemonce(Tianjin Or-change Ltd.) from Dec 2014 to Oct 2017. When I left, the ownership of &lt;code&gt;svg-captcha&lt;/code&gt; has to be decided.&lt;/p&gt;
-
-&lt;p&gt;Personally, I love Node.js, I love what it brings to frontend. For backend, I would definitely go with Golang. I&amp;rsquo;ll probably use Node for a chatroom, but for now I am done with Node for backend. My new job is frontend only. I do not think I am qualified for maintain the repo if I do not use it myself.&lt;/p&gt;
-
-&lt;p&gt;However, I cannot decide the future of the project. Li Chao, my former boss, said that I can only fork the repo, not transfer ownership. It is quite clear at this point that he want to take over the project.&lt;/p&gt;
-
-&lt;p&gt;There&amp;rsquo;re too much forks of everything in the Node community, including Node itself. There&amp;rsquo;re iojs, ayojs, fibjs, etc. The world does not need fives npm modules for generate svg format captcha. Although I can fork the repo and continue my work, I will not do that.&lt;/p&gt;
-</description>
-        </item>
-      
+	<atom:link href="http://weilinshi.org/en/post/index.xml" rel="self" type="application/rss+xml" />
     
-      
-        <item>
-          <title>No JavaScript</title>
-          <link>http://weilinshi.org/en/post/no-javascript/</link>
-          <pubDate>Sat, 07 Oct 2017 18:18:05 CST</pubDate>
-          <author>石威林</author>
-          <guid>http://weilinshi.org/en/post/no-javascript/</guid>
-          <description>
-
-&lt;h2 id=&#34;remove-js-from-my-blog&#34;&gt;Remove JS from my blog&lt;/h2&gt;
-
-&lt;p&gt;Almost every modern website requires JavaScript to function properly nowadays. At my day job, single page application is the way to build website. If you disable JS, good luck finding a website that is useful. And there is the debate over whether websites should suppport JavaScript-free mode. I&amp;rsquo;m not going to argue for that issue. I think that depend on your website&amp;rsquo;s content and your budget. However, make my blog JavaScript-free is simple.&lt;/p&gt;
-
-&lt;h2 id=&#34;the-actual-process&#34;&gt;The actual process&lt;/h2&gt;
-
-&lt;p&gt;My blog have two script files: a syntax highlighter and Google analytics. Thanks to &lt;a href=&#34;https://github.com/alecthomas/chroma&#34;&gt;chroma&lt;/a&gt;, a Golang native syntax highlighter, I can get rid of JS syntax highlighter. If you have used Hexo before, you will know that server side syntax highlight with highlight.js is slow when building large site. On contrary, Chroma is fast. Although Chroma is only four month old at the time of writing, it is production ready for static site. Chroma is bundled with Hugo v0.28.0 and I can remove my JS syntax highlighter.&lt;/p&gt;
-
-&lt;p&gt;Removing GA is also easy. I do not need GA. I do not need to anything about my blog reader. Period.&lt;/p&gt;
-
-&lt;p&gt;Now, enjoy my JavaScript-free blog!&lt;/p&gt;
-</description>
-        </item>
-      
     
+    <item>
+      <title>Work From Home Thoughts</title>
+      <link>http://weilinshi.org/en/post/work-from-home-thoughts/</link>
+      <pubDate>Mon, 23 Mar 2020 14:22:39 +0800</pubDate>
       
-        <item>
-          <title>Godot</title>
-          <link>http://weilinshi.org/en/post/godot/</link>
-          <pubDate>Fri, 28 Jul 2017 18:28:22 CST</pubDate>
-          <author>石威林</author>
-          <guid>http://weilinshi.org/en/post/godot/</guid>
-          <description>
-
-&lt;h2 id=&#34;godot-engine&#34;&gt;Godot engine&lt;/h2&gt;
-
-&lt;p&gt;Recently I finished my first android app for a client work.
-Although it make sound weird, I used a game engine called &lt;a href=&#34;https://godotengine.org/&#34;&gt;Godot&lt;/a&gt; for my app.&lt;/p&gt;
-
-&lt;p&gt;It is open sourced and released under the permissive MIT license. And it compiles to all desktop and mobile platform as you would expect from a game engine.&lt;/p&gt;
-
-&lt;p&gt;The development experience with Godot engine can be very &amp;ldquo;simple&amp;rdquo;. There is no third party library, package management, or make / bundle process. You pretty much only have the engine itself and the doc. Internet connection is not required, which is great for me. I remember when I tried Google&amp;rsquo;s flutter, it tries to secretly connect to Google&amp;rsquo;s server without respect my proxy setting and ends up crash into GFW.&lt;/p&gt;
-
-&lt;p&gt;In Godot engine you have to work with their own Python-like language called GDScript. It is not a very modular or scaleable language, but it gets simple jobs done quickly.&lt;/p&gt;
-
-&lt;p&gt;I would not use it in any medium to large app, but it serves me well in my first small app. Thank you Godot!&lt;/p&gt;
-</description>
-        </item>
-      
+      <guid>http://weilinshi.org/en/post/work-from-home-thoughts/</guid>
+      <description>Since I live in China and work from home since the beginning of Febuary, I should write down some random thoughts about work from home.
+Busy or not? When you work at an office, if you need something from a person, you can just go to that person&amp;rsquo;s desk and have a direct conversion with him (or her). Now, when you work from home, the only thing you can do is to send someone a slack message.</description>
+    </item>
     
+    <item>
+      <title>I Will Stop Maintain svg-captcha</title>
+      <link>http://weilinshi.org/en/post/i-will-stop-maintain-svg-captcha/</link>
+      <pubDate>Sat, 16 Dec 2017 16:29:00 +0800</pubDate>
       
-        <item>
-          <title>Typescript vs Flow</title>
-          <link>http://weilinshi.org/en/post/typescript-vs-flow/</link>
-          <pubDate>Sun, 30 Oct 2016 11:40:57 CST</pubDate>
-          <author>石威林</author>
-          <guid>http://weilinshi.org/en/post/typescript-vs-flow/</guid>
-          <description>
-
-&lt;h2 id=&#34;my-experience-with-typescript-and-flow&#34;&gt;My experience with Typescript and Flow&lt;/h2&gt;
-
-&lt;p&gt;When it comes to type safety in Javascript projects, we have two choices
- available: Typescript and Flow.&lt;/p&gt;
-
-&lt;p&gt;People argued that Javascript does not have type checks and it often lead
- to some very hard to catch bugs. A common example of that would be
- a property of an object became undefined somewhere and you try to use that
- property.&lt;/p&gt;
-
-&lt;p&gt;Smart people at Microsoft and Facebook developed their own open source
- project that promised to catch those bugs for you.&lt;/p&gt;
-
-&lt;h3 id=&#34;typescript&#34;&gt;Typescript&lt;/h3&gt;
-
-&lt;p&gt;Typescript is advertised as &amp;ldquo;a typed superset of JavaScript that
- compiles to plain JavaScript.&amp;rdquo;&lt;/p&gt;
-
-&lt;p&gt;It is one of the most popular language on github and downloads
- on npm is 2M at the time of writing.&lt;br /&gt;
-I can assume that it is very popular and I can get help If I&amp;rsquo;m stuck.&lt;/p&gt;
-
-&lt;p&gt;Although all Javascript are valid Typescript, I cannot just rename
- my existing .js files to .ts and hope it works like what Less and Sass
- works with .css files. So there is no easy way to convert an existing
- project to Typescript project and I have to start from scratch.&lt;/p&gt;
-
-&lt;p&gt;To start with Typescript, I have to read their documentation
- &lt;a href=&#34;https://www.typescriptlang.org/docs/tutorial.html&#34;&gt;here&lt;/a&gt;.
- I just want a Javascript flavored Typescript project, and
- things seem to be relatively easy. I add simple type annotations
- and call it a day.&lt;/p&gt;
-
-&lt;p&gt;However, the difficult part comes when I want to do something more
- complicated like test and publish to npm.&lt;/p&gt;
-
-&lt;p&gt;First, I have to pull in some type definition, or Typescript will
- refuse to compile because he does not understand and think it&amp;rsquo;s unsafe to use&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;import assert from &amp;lsquo;assert&amp;rsquo;;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;And then I went through the painful process of add type definition and
- it does not work out very well. The typings and tsd module confused me
- and I have no idea how it works at the end. What stopped me from
- continue my Typescript journey is test. In order to run my mocha test,
- I cannot just&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;mocha &amp;ndash;compilers ts:typescript&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;It won&amp;rsquo;t work for me even with the require-typescript. I looked at popular
- Typescript repository and it looks like everybody went with compile and
- then test workflow. This is where I stopped.&lt;/p&gt;
-
-&lt;h3 id=&#34;flow&#34;&gt;Flow&lt;/h3&gt;
-
-&lt;p&gt;Flow is &amp;ldquo;A STATIC TYPE CHECKER FOR JAVASCRIPT&amp;rdquo;.&lt;br /&gt;
-It have 1.8M downloads on npm at the time of writing.&lt;/p&gt;
-
-&lt;p&gt;All of existing Javascript files can be checked by Flow as it is a
- simple matter of adding&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;// @flow&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;at the top of a Javascript file.&lt;/p&gt;
-
-&lt;p&gt;However, to make most out of Flow&amp;rsquo;s static type check, you have to add
- type annotations to your Javascript file. This is will be difficult
- for some of the existing projects, but can a breeze for projects that
- use babel.&lt;br /&gt;
-Flow&amp;rsquo;s syntax looks like this:&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;const str: string = &amp;lsquo;Hello, world!&amp;rsquo;;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;which can be stripped by a &lt;a href=&#34;https://babeljs.io/docs/plugins/transform-flow-strip-types/&#34;&gt;babel plugin&lt;/a&gt;
-.&lt;/p&gt;
-
-&lt;p&gt;Flow based project can be setup like any babel project as I expect. Most of
- Flow&amp;rsquo;s type annotations are similar or most of the time, exactly the same
- as Typescript one. So I have no problem writing Flow.&lt;br /&gt;
-When comes to test and build, again, it&amp;rsquo;s still the same babel workflow.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;mocha &amp;ndash;compilers js:babel-register&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;This is will get my mocha test running.&lt;/p&gt;
-
-&lt;p&gt;The best part of it, which I like the most, is that babel will compile as
- long as it&amp;rsquo;s syntax is correct. In other words, Flow is my additional lint
- tool that does not stop my code from running. Also, I can remove @flow
- check directive at the top at any time if I feel their check is not right.&lt;/p&gt;
-
-&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
-
-&lt;p&gt;Both Typescript and Flow are great tools. My approach to Typescript was
- probably wrong and I&amp;rsquo;ll try again with a c# mind. Flow is a great
- addition to Javascript and works best for babel projects.&lt;/p&gt;
-
-&lt;p&gt;For me, I will need babel&amp;rsquo;s new shiny minifier babili no matter what I do
- in near future. So I&amp;rsquo;ll go with Flow personally. Maybe I&amp;rsquo;ll try
- Typescript with Angular 2 project sometime, but I&amp;rsquo;ll recommand anyone
- who want type safety with Flow.&lt;/p&gt;
-</description>
-        </item>
-      
+      <guid>http://weilinshi.org/en/post/i-will-stop-maintain-svg-captcha/</guid>
+      <description>Update March 2020 They don&amp;rsquo;t bother to answer issues or manage pull requests, fuck them.
+What? I&amp;rsquo;m the former maintainer of Node.js open source captcha generation library svg-captcha.
+As you can see, I&amp;rsquo;ve put a lot of effort in maintain the repo, as well as reply issues and merge pull requests. Since I no longer works at Lemonce, I&amp;rsquo;ve lost the access to the repo.
+Li Chao will take over the maintaince of the library.</description>
+    </item>
     
+    <item>
+      <title>No JavaScript</title>
+      <link>http://weilinshi.org/en/post/no-javascript/</link>
+      <pubDate>Sat, 07 Oct 2017 18:18:05 +0800</pubDate>
       
-        <item>
-          <title>svg captcha</title>
-          <link>http://weilinshi.org/en/post/svg-captcha/</link>
-          <pubDate>Fri, 22 Jul 2016 11:16:29 CST</pubDate>
-          <author>石威林</author>
-          <guid>http://weilinshi.org/en/post/svg-captcha/</guid>
-          <description>
-
-&lt;h2 id=&#34;svg-captcha&#34;&gt;svg captcha&lt;/h2&gt;
-
-&lt;p&gt;I use a windows laptop at works and it won&amp;rsquo;t compile any native c++ addons.&lt;br /&gt;
-However, all of node&amp;rsquo;s captcha generation modules dependend on c++ addons in some ways.
-So I wrote a SVG captcha generation module.&lt;/p&gt;
-
-&lt;p&gt;github repository：&lt;a href=&#34;https://github.com/lemonce/svg-captcha&#34;&gt;https://github.com/lemonce/svg-captcha&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Install：&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;npm i &amp;ndash;save svg-captcha&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Usage:&lt;/p&gt;
-
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-JavaScript&#34; data-lang=&#34;JavaScript&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;svgCaptcha&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;require&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;svg-captcha&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
-&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// generate random text of length 4
-&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;text&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;svgCaptcha&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;randomText&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;();&lt;/span&gt;
-&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// generate svg image
-&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;captcha&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;svgCaptcha&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;text&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-</description>
-        </item>
-      
+      <guid>http://weilinshi.org/en/post/no-javascript/</guid>
+      <description>Remove JS from my blog Almost every modern website requires JavaScript to function properly nowadays. At my day job, single page application is the way to build website. If you disable JS, good luck finding a website that is useful. And there is the debate over whether websites should suppport JavaScript-free mode. I&amp;rsquo;m not going to argue for that issue. I think that depend on your website&amp;rsquo;s content and your budget.</description>
+    </item>
     
-
+    <item>
+      <title>Godot</title>
+      <link>http://weilinshi.org/en/post/godot/</link>
+      <pubDate>Fri, 28 Jul 2017 18:28:22 +0800</pubDate>
+      
+      <guid>http://weilinshi.org/en/post/godot/</guid>
+      <description>Godot engine Recently I finished my first android app for a client work. Although it make sound weird, I used a game engine called Godot for my app.
+It is open sourced and released under the permissive MIT license. And it compiles to all desktop and mobile platform as you would expect from a game engine.
+The development experience with Godot engine can be very &amp;ldquo;simple&amp;rdquo;. There is no third party library, package management, or make / bundle process.</description>
+    </item>
+    
+    <item>
+      <title>Typescript vs Flow</title>
+      <link>http://weilinshi.org/en/post/typescript-vs-flow/</link>
+      <pubDate>Sun, 30 Oct 2016 11:40:57 +0800</pubDate>
+      
+      <guid>http://weilinshi.org/en/post/typescript-vs-flow/</guid>
+      <description>Update 2019-01-30
+More than two years have passed since I wrote this. Right now the Typescript had grown a lot since then. I honestly think Typescript is a better choice today.
+My experience with Typescript and Flow When it comes to type safety in Javascript projects, we have two choices available: Typescript and Flow.
+People argued that Javascript does not have type checks and it often lead to some very hard to catch bugs.</description>
+    </item>
+    
+    <item>
+      <title>svg captcha</title>
+      <link>http://weilinshi.org/en/post/svg-captcha/</link>
+      <pubDate>Fri, 22 Jul 2016 11:16:29 +0800</pubDate>
+      
+      <guid>http://weilinshi.org/en/post/svg-captcha/</guid>
+      <description>svg captcha I use a windows laptop at works and it won&amp;rsquo;t compile any native c++ addons.
+However, all of node&amp;rsquo;s captcha generation modules dependend on c++ addons in some ways. So I wrote a SVG captcha generation module.
+github repository：https://github.com/lemonce/svg-captcha
+Install：
+ npm i &amp;ndash;save svg-captcha
+ Usage:
+var svgCaptcha = require(&amp;#39;svg-captcha&amp;#39;); // generate random text of length 4 var text = svgCaptcha.randomText(); // generate svg image var captcha = svgCaptcha(text);  </description>
+    </item>
+    
   </channel>
 </rss>

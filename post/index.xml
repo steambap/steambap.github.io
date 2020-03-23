@@ -1,462 +1,78 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>石威林的博客 </title>
+    <title>Posts on 石威林的博客</title>
     <link>http://weilinshi.org/post/</link>
-    <language>en-us</language>
-    <author>石威林</author>
-    <rights>(C) 2017</rights>
-    <updated>2017-12-16 16:29:00 &#43;0800 CST</updated>
-
+    <description>Recent content in Posts on 石威林的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 01 Jan 2018 18:44:23 +0800</lastBuildDate>
     
-      
-        <item>
-          <title>我不再维护 svg-captcha</title>
-          <link>http://weilinshi.org/post/i-will-stop-maintain-svg-captcha/</link>
-          <pubDate>Sat, 16 Dec 2017 16:29:00 CST</pubDate>
-          <author>石威林</author>
-          <guid>http://weilinshi.org/post/i-will-stop-maintain-svg-captcha/</guid>
-          <description>
-
-&lt;h2 id=&#34;发生了什么&#34;&gt;发生了什么？&lt;/h2&gt;
-
-&lt;p&gt;我是之前 Node.js 开源验证码生成库 &lt;code&gt;svg-captcha&lt;/code&gt; 的维护者&lt;/p&gt;
-
-&lt;p&gt;如图，你可以看出，在过去的一年中，我尽心尽力维护项目，回复 issue，合并 PR
-&lt;img src=&#34;http://weilinshi.org/images/svg-captcha-contrib.png&#34; alt=&#34;contrib&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;但是现在我已经不在 Lemonce 工作了，我已经无法向该项目直接提交代码了。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/lichaozhy&#34;&gt;李超&lt;/a&gt; 会继续维护这个项目。你可以通过邮件联系它: lichao@or-change.cn 。&lt;/p&gt;
-
-&lt;h2 id=&#34;出了什么事&#34;&gt;出了什么事？&lt;/h2&gt;
-
-&lt;p&gt;我与2014年12月到2017年10月在 Lemonce（天津橙子科技）工作。 当我离开的时候， &lt;code&gt;svg-captcha&lt;/code&gt; 这个项目未来必须有个明确的归宿。&lt;/p&gt;
-
-&lt;p&gt;从个人的角度讲，我非常喜欢 Node 给前端带来的各种相关工具和让前端飞速发展。但是提到后台，我肯定会选用 Golang。也许我在构建聊天室的时候会使用 Node，但是我暂时不再使用 Node 构建任何后台应用了。我的新工作是纯前端的，我自己都不怎么用了，所以我认为我也不太适合继续维护这个项目了。&lt;/p&gt;
-
-&lt;p&gt;但是，我是无法决定这个项目的未来的。我的前老板，李超表示，我只可以 Fork，不可以带走这个项目。所以它会继续维护这个项目。&lt;/p&gt;
-
-&lt;p&gt;Node 社区是以一言不合就开新项目文明的。包括 Node 本身，就有 iojs, ayojs, fibjs 等多个 Fork 或类似的项目。我觉得这个世界不需要5种在 Node 中生成 svg 格式的验证码的方法。所以我不会 Fork。&lt;/p&gt;
-</description>
-        </item>
-      
+	<atom:link href="http://weilinshi.org/post/index.xml" rel="self" type="application/rss+xml" />
     
-      
-        <item>
-          <title>移除 JavaScript</title>
-          <link>http://weilinshi.org/post/no-javascript/</link>
-          <pubDate>Sat, 07 Oct 2017 18:18:05 CST</pubDate>
-          <author>石威林</author>
-          <guid>http://weilinshi.org/post/no-javascript/</guid>
-          <description>
-
-&lt;h2 id=&#34;从博客中移除-js&#34;&gt;从博客中移除 JS&lt;/h2&gt;
-
-&lt;p&gt;现代的网站一般都是需要 JS 才能运行的。在我的日常前端工作中，单页应用就是最主要网站的解决方案。如果在浏览器中禁止了 JS，那么恭喜你，你可以浏览的网站里面估计没有多少有用的。虽然由于 JS 比重的增加，国外的网站上有各种关于是否也支持无 JS 脚本的网站的讨论，但其实这就是钱和程序员精力的问题罢了。话又说回来，把我自己的博客变为不需要 JS 的还是可以做到的。&lt;/p&gt;
-
-&lt;h2 id=&#34;具体实施&#34;&gt;具体实施&lt;/h2&gt;
-
-&lt;p&gt;我的博客只有两个 JS 文件：高亮脚本和谷歌统计。从 Hugo v0.28.0 版本开始使用 &lt;a href=&#34;https://github.com/alecthomas/chroma&#34;&gt;chroma&lt;/a&gt;，一个 Go 语言语法高亮库来生成代码高亮。虽然 chroma 才刚维护了4个月，但还是效率还是非常可靠的，至少比 Python 和 JS 的要快。这样我就可以安全的移除 JS 高亮脚本，在生成静态博客时就做好高亮了。&lt;/p&gt;
-
-&lt;p&gt;移除谷歌统计也很简单。其实我并不需要谷歌统计。我不需要知道关于我的博客的读者的任何信息，就酱子。&lt;/p&gt;
-
-&lt;p&gt;好了，在浏览器中禁用脚本，试试浏览我的博客吧！&lt;/p&gt;
-</description>
-        </item>
-      
     
+    <item>
+      <title>Koa Tree Router</title>
+      <link>http://weilinshi.org/post/koa-tree-router/</link>
+      <pubDate>Mon, 01 Jan 2018 18:44:23 +0800</pubDate>
       
-        <item>
-          <title>Godot</title>
-          <link>http://weilinshi.org/post/godot/</link>
-          <pubDate>Fri, 28 Jul 2017 18:28:22 CST</pubDate>
-          <author>石威林</author>
-          <guid>http://weilinshi.org/post/godot/</guid>
-          <description>
-
-&lt;h2 id=&#34;godot-引擎&#34;&gt;Godot 引擎&lt;/h2&gt;
-
-&lt;p&gt;最近我完成了我的第一个安卓应用。虽然你可能不太相信，但我是用的一个游戏引擎 &lt;a href=&#34;https://godotengine.org/&#34;&gt;Godot&lt;/a&gt; 来制作的。&lt;/p&gt;
-
-&lt;p&gt;我的客户是 北京市&lt;a href=&#34;http://www.chrenai.com/portal.php&#34;&gt;仁爱慈善&lt;/a&gt;基金会。它的旗下有一个项目叫仁爱心栈。这个项目的工作大概就是，每天早上有志愿者会到交通要道的周围把熬好的粥奉送给路过的人。有点类似古代的赊粥。&lt;/p&gt;
-
-&lt;p&gt;而这个过程中需要记录一些东西，比如今天有哪些志愿者来了，他们具体的职责是什么，是否有新志愿者，奉送了多少杯粥等等。这时记录的东西一般是在手机上（安卓为主）。等早上忙完了，会有专门的文宣人员根据这些记录来写下当天的日志和心得。这时他们会使用电脑，当然是Windows系统。&lt;/p&gt;
-
-&lt;p&gt;所以我的初始目标很明显，选择一个可以安卓和Windows通用的技术，快速的做出一个原型。我很想使用 JavaScript，那毕竟是我工作上使用的语言。我很熟悉他的优缺点。我不认我的客户会喜欢 50mb 的 Electron 应用，我也不会在这时贸然选择 React-Native 或 Weex。虽然后台我还是使用了 Node.js，但前端的技术选择很令我着急。&lt;/p&gt;
-
-&lt;p&gt;这时我想到了 Unity3D，作为一个游戏引擎，它几乎就是我需要的：一份代码可以编译到安卓和Windows上。不过 Godot 引擎更好——我的客户应该不会喜欢看到 Unity3D 的 logo，而 Godot 作为 MIT 协议的游戏引擎，允许我使用仁爱慈善作为 splash screen。要知道仁爱慈善算是佛教的团体，是很保守的。如果让他们看到 Unity3D 的 logo，第一印象一定会很差的，虽然我知道 Unity3D 肯定是技术上最好的选择。&lt;/p&gt;
-
-&lt;p&gt;Godot 引擎作为一个开源项目，最大的好处就是没有任何依赖，甚至不需要联网。在这里我就要批评一下我曾经看上的两个项目。一个是 google 出的 flutter。不知道为啥他们不喜欢自己同事设计的安卓的 api，但他的想法很好：用 c++ 写一个自己的跨平台引擎，配合 Dart 语言和自己的 FPR 框架。。。可惜的是他们的实现我只能用傻逼来形容。它会不经过我同意就要从 google 的服务器拉东西，撞在了防火墙上。我可是有梯子的，但它偏偏不用，总是想偷偷的搞事情，江来出了事情又不负责。另一个就是 Defold 引擎，居然要求你的项目在他的 git 服务器上，拿衣服。&lt;/p&gt;
-
-&lt;p&gt;开发时使用 Godot 非常“方便”，因为你只需要看文档。没有任何第三方库可以使用，也没有复杂的包管理和 bundler。Godot 目前只支持自己的 GDScript 语言，该语言类似 Python，但并不是特别好用，只适合小型项目。&lt;/p&gt;
-
-&lt;p&gt;之前我撒了一个谎，其实打包安卓时还是需要 Java 和 Android Studio 全家桶的。不过那都不是问题，google 一下就可以解决一切。&lt;/p&gt;
-
-&lt;p&gt;结果当然是我的客户非常高兴。我也算是制作了自己第一个安卓应用。&lt;/p&gt;
-</description>
-        </item>
-      
+      <guid>http://weilinshi.org/post/koa-tree-router/</guid>
+      <description>koa-tree-router 最近有个非常火的框架叫Fastify。它自称自己高性能的杀手锏之一就是使用了他们自己研发的路由find-my-way。这个路由说是利用基数</description>
+    </item>
     
+    <item>
+      <title>我不再维护 svg-captcha</title>
+      <link>http://weilinshi.org/post/i-will-stop-maintain-svg-captcha/</link>
+      <pubDate>Sat, 16 Dec 2017 16:29:00 +0800</pubDate>
       
-        <item>
-          <title>消除游戏</title>
-          <link>http://weilinshi.org/post/same-game/</link>
-          <pubDate>Wed, 21 Dec 2016 12:00:21 CST</pubDate>
-          <author>石威林</author>
-          <guid>http://weilinshi.org/post/same-game/</guid>
-          <description>
-
-&lt;h2 id=&#34;用-phaser-制作消除游戏&#34;&gt;用 phaser 制作消除游戏&lt;/h2&gt;
-
-&lt;p&gt;最近我使用 phaser 游戏框架做了一个简单的消除游戏。&lt;/p&gt;
-
-&lt;h4 id=&#34;基本设置&#34;&gt;基本设置&lt;/h4&gt;
-
-&lt;p&gt;我使用了 electron 而不是 http 服务器来做本地调试，&lt;br /&gt;
-因为 electron 自带 require，可以使我的代码更模块化，&lt;br /&gt;
-而且我还可以使用 ES6。&lt;/p&gt;
-
-&lt;p&gt;所以我的游戏入口设置是这样的：&lt;/p&gt;
-
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-JavaScript&#34; data-lang=&#34;JavaScript&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;game&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Phaser&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Game&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;options&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;width&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;options&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;height&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
-
-&lt;span style=&#34;color:#000&#34;&gt;game&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;state&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;add&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;InGame&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;InGame&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
-&lt;span style=&#34;color:#000&#34;&gt;game&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;state&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;start&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;InGame&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;我的游戏只有一个 in game 游戏状态，这里会有所有的游戏逻辑。&lt;/p&gt;
-
-&lt;h4 id=&#34;游戏逻辑&#34;&gt;游戏逻辑&lt;/h4&gt;
-
-&lt;p&gt;首先是构造器，这里面会有我们要用到的状态，比较重要的是以下几个：&lt;/p&gt;
-
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-JavaScript&#34; data-lang=&#34;JavaScript&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;InGame&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
-	&lt;span style=&#34;color:#000&#34;&gt;constructor&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
-		&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// 是否允许用户点击
-&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;		&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// 如果有消除或填充的动画，则不允许用户点击
-&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;		&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;canPick&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-		&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// 二维数组，保存画面上所有可以消除的方块
-&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;		&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;tilesArray&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[];&lt;/span&gt;
-		&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// 方块回收池
-&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;		&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// 当用户消除了一些方块时，那些方块不会被删除，而是暂时回到回收池
-&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;		&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;tilePool&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[];&lt;/span&gt;
-	&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
-&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;有了这些状态之后，我们就可以预加载图片并且在画面上显示所有的方块了。&lt;br /&gt;
-预加载的代码我先省略掉。&lt;/p&gt;
-
-&lt;p&gt;主要看 InGame 游戏状态的create方法&lt;/p&gt;
-
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-JavaScript&#34; data-lang=&#34;JavaScript&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;InGame&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
-	&lt;span style=&#34;color:#000&#34;&gt;preload&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
-		&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// 预加载代码
-&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;		&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// 例如：this.game.load.image(&amp;#39;tile&amp;#39;, &amp;#39;./tile.png&amp;#39;)
-&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;	&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
-	&lt;span style=&#34;color:#000&#34;&gt;create&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
-		&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// 这里一般会有缩放代码来适配各种屏幕
-&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;		&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;createLv&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;();&lt;/span&gt;
-	&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
-	&lt;span style=&#34;color:#000&#34;&gt;createLv&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
-		&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;for&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;let&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;i&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;i&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;opts&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;rows&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;++&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
-			&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;tilesArray&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[];&lt;/span&gt;
-			&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;for&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;let&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;j&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;j&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;opts&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;cols&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;j&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;++&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
-				&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;addTile&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;j&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
-			&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
-		&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;		
-	&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
-	&lt;span style=&#34;color:#000&#34;&gt;addTile&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;row&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;col&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
-		&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;tile&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;makeTile&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;row&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;col&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
-
-		&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;tilesArray&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;row&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;][&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;col&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
-			&lt;span style=&#34;color:#000&#34;&gt;tileSprite&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;tile&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
-			&lt;span style=&#34;color:#000&#34;&gt;isEmpty&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;false&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
-			&lt;span style=&#34;color:#000&#34;&gt;coordinate&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Point&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;row&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;col&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;),&lt;/span&gt;
-			&lt;span style=&#34;color:#000&#34;&gt;tint&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;tile&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;tint&lt;/span&gt;
-		&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;};&lt;/span&gt;
-	&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
-
-	&lt;span style=&#34;color:#000&#34;&gt;makeTile&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;row&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;col&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
-		&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;left&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;col&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0.5&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;opts&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;tileSize&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-		&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;top&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;row&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0.5&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;opts&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;tileSize&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-
-		&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;theTile&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;game&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;add&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;sprite&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;left&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;top&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;tiles&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
-
-		&lt;span style=&#34;color:#000&#34;&gt;theTile&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;anchor&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;set&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0.5&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
-		&lt;span style=&#34;color:#000&#34;&gt;theTile&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;width&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;opts&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;tileSize&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-		&lt;span style=&#34;color:#000&#34;&gt;theTile&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;height&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;opts&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;tileSize&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-
-		&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;colorIndex&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;game&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;rnd&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;integerInRange&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;opts&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;colors&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;length&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
-
-		&lt;span style=&#34;color:#000&#34;&gt;theTile&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;tint&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;opts&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;colors&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;colorIndex&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;];&lt;/span&gt;
-
-		&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;theTile&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-	&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
-&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;这个 opts 定量里面有设定游戏有多少行和列，&lt;br /&gt;
-所以 createLv 方法先遍历行，再遍历列，然后对对应的行和列添加方块&lt;br /&gt;
-makeTile 方法会生成对应的方块并添加到游戏当中&lt;br /&gt;
-注意：
-* 方块的中心在方块的中间，所以计算位置时会有 + 0.5
-* 每个方块有一个随机的颜色，用的是 Phaser 的 rnd.integerInRange 方法
-最后在 addTile 方法里面，我把生成的 sprite ，相应的位置，还有颜色添加到了 tilesArray 里面&lt;/p&gt;
-
-&lt;p&gt;这时打开游戏，已经能看到所有的方块已经显示出来了。&lt;/p&gt;
-
-&lt;p&gt;但是，现在点击这些方块还没有任何效果。&lt;/p&gt;
-
-&lt;p&gt;所以，我们需要对用户的点击操作进行处理：&lt;/p&gt;
-
-&lt;p&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-JavaScript&#34; data-lang=&#34;JavaScript&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;InGame&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
-	&lt;span style=&#34;color:#000&#34;&gt;createLv&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
-		&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// 遍历添加方块的代码省略
-&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;		&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;game&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;input&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;onDown&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;add&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;pickTile&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
-	&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
-
-	&lt;span style=&#34;color:#000&#34;&gt;pickTile&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
-		&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;canPick&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
-			&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;posX&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;x&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-			&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;posY&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;y&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-
-			&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// 这里的 e 是事件对象
-&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;			&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// 事件触发的 x 决定触发在哪个列
-&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;			&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// 事件触发的 y 决定触发在哪个行
-&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;			&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// 一定要小心并弄清它们的关系
-&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;			&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;pickedRow&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#204a87&#34;&gt;Math&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;floor&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;posY&lt;/span&gt; &lt;span style=&#34;color:#a40000&#34;&gt;/ opts.tileSize);&lt;/span&gt;
-			&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;pickedCol&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#204a87&#34;&gt;Math&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;floor&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;posX&lt;/span&gt; &lt;span style=&#34;color:#a40000&#34;&gt;/ opts.tileSize);&lt;/span&gt;
-
-			&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// isValidTile 函数检查用户的点击是否在合法范围内，略。
-&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;			&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;isValidTile&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;pickedRow&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;pickedCol&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;))&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
-				&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;pickedTile&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;tilesArray&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;pickedRow&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;][&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;pickedCol&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;];&lt;/span&gt;
-				&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// 真正的消除逻辑
-&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;				&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;tryPick&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;pickedTile&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
-			&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
-		&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
-	&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
-
-	&lt;span style=&#34;color:#000&#34;&gt;tryPick&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;theTile&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
-		&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;fill&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[];&lt;/span&gt;
-		&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;floodFill&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;theTile&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;coordinate&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;theTile&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;tint&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;fill&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
-
-		&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;fill&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;length&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
-			&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;destroyTiles&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;fill&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
-		&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
-	&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
-&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;&lt;/p&gt;
-
-&lt;p&gt;当用户点击鼠标左键时，会触发回调 pickTile 函数，具体逻辑在注释中有。&lt;/p&gt;
-
-&lt;p&gt;如果用户的点击合法，就调用 tryPick 函数。&lt;br /&gt;
-这个函数初始化了一个 fill 变量，保存这次点击会影响到的方块。&lt;br /&gt;
-之后有一个 floodFill 的方法，它会递归查找受影响的方块。&lt;/p&gt;
-
-&lt;p&gt;最后检查受影响的方块的数量，如果是3个或更多，就可以消除它们，即三消。&lt;/p&gt;
-
-&lt;p&gt;那就来看看 floodFill 是如何递归的：&lt;/p&gt;
-
-&lt;p&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-JavaScript&#34; data-lang=&#34;JavaScript&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;InGame&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
-	&lt;span style=&#34;color:#000&#34;&gt;floodFill&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;point&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;color&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;fillArr&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
-		&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;x&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;y&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;point&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-		&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;!&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;isValidTile&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;x&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;y&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;))&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
-			&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-		&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
-		&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;tilesArray&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;x&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;][&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;y&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;].&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;isEmpty&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
-			&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-		&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
-		&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;pointInArr&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;fillArr&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;point&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;))&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
-			&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-		&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
-		&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;tilesArray&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;x&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;][&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;y&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;].&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;tint&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;===&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;color&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
-			&lt;span style=&#34;color:#000&#34;&gt;fillArr&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;push&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;point&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
-			&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;floodFill&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Point&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;x&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;y&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;),&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;color&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;fillArr&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
-			&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;floodFill&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Point&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;x&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;y&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;),&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;color&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;fillArr&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
-			&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;floodFill&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Point&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;x&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;y&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;),&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;color&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;fillArr&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
-			&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;floodFill&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Point&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;x&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;y&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;),&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;color&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;fillArr&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
-		&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
-	&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
-
-	&lt;span style=&#34;color:#000&#34;&gt;pointInArr&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;arr&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;point&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
-		&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;arr&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;some&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;myPoint&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;myPoint&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;equals&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;point&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;));&lt;/span&gt;
-	&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
-&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;&lt;/p&gt;
-
-&lt;p&gt;这个函数有3个参数，第一个是初始点，第二个是初始颜色，第三个是受影响的点的数组。&lt;/p&gt;
-
-&lt;p&gt;之后会做一些条件判定，包括：
-- 递归的点是否合法，比如当前的点是(0, 0)， 之后会向(-1, 0) 等非法点递归
-- 检查当前的格子是否为空
-- 检查当前的点是否已经被加入到了数组中，这里用的是数组的 Array.some 方法
-- 当前颜色是否和初始点的颜色一样
-如果符合条件，会把当前的点加入到数组中，并向4个方向递归，这也是 windows 中“画图”应用中的“填充”功能的递归方法。&lt;/p&gt;
-
-&lt;p&gt;当我们知道所有同样颜色的方块之后，就可以消除它们了。&lt;/p&gt;
-
-&lt;p&gt;在 Phaser 官方的教程中，如果你碰到了一个星星，你就使用 kill 方法移除那个星星的 sprite&lt;br /&gt;
-但那不一定是最好的选择，来看我是如果移除方块的：&lt;/p&gt;
-
-&lt;p&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-JavaScript&#34; data-lang=&#34;JavaScript&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;InGame&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
-	&lt;span style=&#34;color:#000&#34;&gt;destroyTiles&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;tileList&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
-		&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// 禁止用户在动画中点击方块
-&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;		&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;canPick&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;false&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-
-		&lt;span style=&#34;color:#000&#34;&gt;tileList&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;forEach&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;point&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
-			&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// 按位置查找需要消除的方块
-&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;			&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;tile&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;tilesArray&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;point&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;x&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;][&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;point&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;y&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;];&lt;/span&gt;
-			&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// 不需要真的移除这些方块，而是让他们的透明度变为0
-&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;			&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// 这里是用动画让透明度逐渐变化
-&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;			&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;tween&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;game&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;add&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;tween&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;tile&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;tileSprite&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;).&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;to&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;({&lt;/span&gt;
-				&lt;span style=&#34;color:#000&#34;&gt;alpha&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;
-			&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;},&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;300&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Phaser&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Easing&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Linear&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;None&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
-			&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// 被“移除”的方块回到池中
-&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;			&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;tilePool&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;push&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;tile&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;tileSprite&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
-			&lt;span style=&#34;color:#000&#34;&gt;tween&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;onComplete&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;add&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;fillHoles&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
-			&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// 当前的方块被标记为空
-&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;			&lt;span style=&#34;color:#000&#34;&gt;tile&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;isEmpty&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-		&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;});&lt;/span&gt;
-	&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
-&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;&lt;/p&gt;
-
-&lt;p&gt;当动画完成后，执行 fillHoles 回调函数，并用重复利用池中的方块。&lt;/p&gt;
-
-&lt;p&gt;代码我就不在这里展示了，因为都是一些面向过程的代码，而且比较长。&lt;/p&gt;
-
-&lt;p&gt;项目在这里： &lt;a href=&#34;https://github.com/steambap/same&#34;&gt;same&lt;/a&gt;&lt;/p&gt;
-</description>
-        </item>
-      
+      <guid>http://weilinshi.org/post/i-will-stop-maintain-svg-captcha/</guid>
+      <description>2020年3月更新 他们不管 PR，不回复 issue，一群傻逼。 发生了什么？ 我是之前 Node.js 开源验证码生成库 svg-captcha 的维护者 如图，你可以看出，在过去的一年中</description>
+    </item>
     
+    <item>
+      <title>移除 JavaScript</title>
+      <link>http://weilinshi.org/post/no-javascript/</link>
+      <pubDate>Sat, 07 Oct 2017 18:18:05 +0800</pubDate>
       
-        <item>
-          <title>Typescript vs Flow</title>
-          <link>http://weilinshi.org/post/typescript-vs-flow/</link>
-          <pubDate>Sun, 30 Oct 2016 11:40:57 CST</pubDate>
-          <author>石威林</author>
-          <guid>http://weilinshi.org/post/typescript-vs-flow/</guid>
-          <description>
-
-&lt;h2 id=&#34;typescript-和-flow&#34;&gt;Typescript 和 Flow&lt;/h2&gt;
-
-&lt;p&gt;从编译型语言转型的工程师常常抱怨 Javascript 没有类型，不安全。我自己在工作中
-也经常遇到过对象上的一个属性在n个模块之间传递之后变成了 undefined 。&lt;/p&gt;
-
-&lt;p&gt;微软和脸书的工程师开发自己的开源的方案来解决这种痛点，这就有了微软的
-Typescript 和脸书的 Flow 。&lt;/p&gt;
-
-&lt;h3 id=&#34;typescript&#34;&gt;Typescript&lt;/h3&gt;
-
-&lt;p&gt;Typescript 被称作“有类型的并且编译成原生的Javascript的超集”。
-Typescript 现在是 github 上最受欢迎的语言之一，并且现在在 npm 上有 2M 的下载量。&lt;/p&gt;
-
-&lt;p&gt;所有的 Javascript 语法在 Typescript 中都是有效的，但是不要以为你把已有的
-.js文件重命名为.ts就可以万事大吉了。Typscript不会像 Less 或者 Sass 那样接受 css 。
-如果想用 Typescript ，我必须从新建一个项目开始。&lt;/p&gt;
-
-&lt;p&gt;按照 &lt;a href=&#34;https://www.typescriptlang.org/docs/tutorial.html&#34;&gt;Typescript 的文档&lt;/a&gt; ，
-我可以较为轻松的构建一个简单的项目，并给我的变量和对象添加类型。&lt;/p&gt;
-
-&lt;p&gt;但是，如果你想做一些更加复杂的事情就没有那么简单了。你肯定需要获取你的依赖的类型定义，
-不然 Typescript 会认为&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;import assert from &amp;lsquo;assert&amp;rsquo;;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;这里的 assert 未定义，不能编译。&lt;/p&gt;
-
-&lt;p&gt;所以我花了九牛二虎之力，浪费了好久，查了typings和tsd之后，不知咋的就算勉强搞定了。
-但是更糟糕的是，我不能像类似这样：&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;mocha &amp;ndash;compilers ts:typescript&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;就运行我的 mocha 测试。我查了以下 github 上面的一些 Typescript 项目，
-大家都是先编译再运行测试。到这时我只能怒删 Typescript 了。&lt;/p&gt;
-
-&lt;h3 id=&#34;flow&#34;&gt;Flow&lt;/h3&gt;
-
-&lt;p&gt;Flow 是一个给 Javascript 添加了静态类型检查的工具，现在在 npm 上有 1.8M 的下载。
-所有的 Javascript 文件都可以让 Flow 检查，你只需要在文件的顶部加上这一行&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;// @flow&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;有点类似 &amp;lsquo;use strict&amp;rsquo;;&lt;/p&gt;
-
-&lt;p&gt;如果想要充分利用 Flow 的静态类型分析，我就必须要添加 Flow 的静态类型标注，像是：&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;const str: string = &amp;lsquo;Hello, world!&amp;rsquo;;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;所以，部分已有的项目是不能有效的使用 Flow 的。 但是基于 babel 的项目是完全可以的，
-只需要一个 &lt;a href=&#34;https://babeljs.io/docs/plugins/transform-flow-strip-types/&#34;&gt;babel 插件&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;而构建一个新的 Flow 项目和基于 babel 的项目是一样的，你只是加了一个 babel 的插件而已。
-Flow 的语言和 Typescript 的语法类似，甚至大部分时候是完全一样的。到了测试环节，
-还是 babel 项目的老办法：&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;mocha &amp;ndash;compilers js:babel-register&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Flow 最大的优点是，只要语法正确，babel 仍然能正常编译，如果你不喜欢，你可以去掉
-Flow 的指令让它不再检查那个文件就可以了。&lt;/p&gt;
-
-&lt;h2 id=&#34;总结&#34;&gt;总结&lt;/h2&gt;
-
-&lt;p&gt;虽然两个工具都很受欢迎，但是我还是偏好 Flow 。也许我打开 Typescript 的姿势不对，
-但是 Typescript 总归是个新的语言。不安它的规则走，你就别指望有能用的代码。
-相对的， Flow 像是你的额外的Linter,它会对你的文件进行静态类型分析，如果你认为
-它说的不对，可以忽略掉。所以，除非有 Angular 2 的项目，不然，如果项目有类型安全的
-需求，我肯定会选择 Flow，毕竟 babel 怎么都会用得上。&lt;/p&gt;
-</description>
-        </item>
-      
+      <guid>http://weilinshi.org/post/no-javascript/</guid>
+      <description>从博客中移除 JS 现代的网站一般都是需要 JS 才能运行的。在我的日常前端工作中，单页应用就是最主要网站的解决方案。如果在浏览器中禁止了 JS，那么恭喜</description>
+    </item>
     
+    <item>
+      <title>Godot</title>
+      <link>http://weilinshi.org/post/godot/</link>
+      <pubDate>Fri, 28 Jul 2017 18:28:22 +0800</pubDate>
       
-        <item>
-          <title>svg captcha</title>
-          <link>http://weilinshi.org/post/svg-captcha/</link>
-          <pubDate>Fri, 22 Jul 2016 11:16:29 CST</pubDate>
-          <author>石威林</author>
-          <guid>http://weilinshi.org/post/svg-captcha/</guid>
-          <description>
-
-&lt;h2 id=&#34;svg验证码&#34;&gt;svg验证码&lt;/h2&gt;
-
-&lt;p&gt;在node中生成验证码可以有很多选择，但没有一个能用的，因为我使用的是windows，无法编译c++模块。&lt;/p&gt;
-
-&lt;p&gt;在经过了一定的实验后，我发现可以生成svg格式的验证码，不需要依赖任何c++模块。&lt;/p&gt;
-
-&lt;p&gt;项目地址：&lt;a href=&#34;https://github.com/lemonce/svg-captcha&#34;&gt;https://github.com/lemonce/svg-captcha&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;安装方法：&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;npm i &amp;ndash;save svg-captcha&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;使用方法&lt;/p&gt;
-
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-JavaScript&#34; data-lang=&#34;JavaScript&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;svgCaptcha&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;require&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;svg-captcha&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
-&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// 生成由4个字符的随机字符串
-&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;text&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;svgCaptcha&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;randomText&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;();&lt;/span&gt;
-&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// 由随机字符串生成svg格式验证码
-&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;captcha&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;svgCaptcha&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;text&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-</description>
-        </item>
-      
+      <guid>http://weilinshi.org/post/godot/</guid>
+      <description>Godot 引擎 最近我完成了我的第一个安卓应用。虽然你可能不太相信，但我是用的一个游戏引擎 Godot 来制作的。 我的客户是 北京市仁爱慈善基金会。它的旗下有一个项</description>
+    </item>
     
-
+    <item>
+      <title>消除游戏</title>
+      <link>http://weilinshi.org/post/same-game/</link>
+      <pubDate>Wed, 21 Dec 2016 12:00:21 +0800</pubDate>
+      
+      <guid>http://weilinshi.org/post/same-game/</guid>
+      <description>用 phaser 制作消除游戏 最近我使用 phaser 游戏框架做了一个简单的消除游戏。 基本设置 我使用了 electron 而不是 http 服务器来做本地调试， 因为 electron 自带 require，可以使我</description>
+    </item>
+    
+    <item>
+      <title>Typescript vs Flow</title>
+      <link>http://weilinshi.org/post/typescript-vs-flow/</link>
+      <pubDate>Sun, 30 Oct 2016 11:40:57 +0800</pubDate>
+      
+      <guid>http://weilinshi.org/post/typescript-vs-flow/</guid>
+      <description>Typescript 和 Flow 从编译型语言转型的工程师常常抱怨 Javascript 没有类型，不安全。我自己在工作中 也经常遇到过对象上的一个属性在n个模块之间传递之后变成了 undefined 。 微软和脸</description>
+    </item>
+    
+    <item>
+      <title>svg captcha</title>
+      <link>http://weilinshi.org/post/svg-captcha/</link>
+      <pubDate>Fri, 22 Jul 2016 11:16:29 +0800</pubDate>
+      
+      <guid>http://weilinshi.org/post/svg-captcha/</guid>
+      <description>svg验证码 在node中生成验证码可以有很多选择，但没有一个能用的，因为我使用的是windows，无法编译c++模块。 在经过了一定的实验后，</description>
+    </item>
+    
   </channel>
 </rss>
