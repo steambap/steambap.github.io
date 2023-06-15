@@ -1,0 +1,41 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header title={SITE_TITLE} />
+		<main>
+			<h1>🧑‍🚀 Hello, There!</h1>
+			<p>
+				My name is Weilin Shi. I'm a JavaScript developer.
+			</p>
+			<p>
+				This the place where I wrote down what I have done and what is my thought on things I did.
+			</p>
+			<p>Here are a few open source project that I'm working on:</p>
+			<ul>
+				<li>
+					<a href="https://github.com/steambap/png-to-ico" target="_blank">png-to-ico</a>
+				</li>
+				<li>
+					<a href="https://github.com/steambap/captcha" target="_blank">captcha</a>
+				</li>
+				<li>
+					<a href="https://github.com/steambap/koa-tree-router" target="_blank">koa-tree-router</a>
+				</li>
+			</ul>
+			<p>
+				Have fun reading my blog!
+			</p>
+		</main>
+		<Footer />
+	</body>
+</html>
