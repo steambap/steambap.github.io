@@ -41,7 +41,7 @@ function App() {
         debug: false,
       });
     }
-    // Subscription
+    // Subscribe for update
     const unsubscribe = client.current.subscribe(() => forceUpdate());
     client.current.start();
 
