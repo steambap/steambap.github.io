@@ -12,7 +12,4 @@ export default defineConfig({
       langs: ["js", "ts"],
     },
   },
-  experimental: {
-    viewTransitions: true,
-  },
 });
