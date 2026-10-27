@@ -2,7 +2,7 @@
 pubDate: "2016-07-22T11:16:29+08:00"
 description: "svg captcha"
 title: "svg captcha"
-heroImage: "/images/svg-captcha.png"
+heroImage: "../../assets/blog/svg-captcha.png"
 
 ---
 
