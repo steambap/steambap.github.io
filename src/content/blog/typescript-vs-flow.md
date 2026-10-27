@@ -3,7 +3,7 @@ pubDate: "2016-10-30T11:40:57+08:00"
 updatedDate: "2019-01-30"
 title: "Typescript vs Flow"
 description: "Typescript vs Flow"
-heroImage: "/images/ts-flow.png"
+heroImage: "../../assets/blog/ts-flow.png"
 ---
 
 _Update 2019-01-30_
